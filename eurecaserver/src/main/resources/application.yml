@@ -1,0 +1,17 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: eurecaserver
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#开启http basic 的安全认证
+security:
+  basic:
+    enabled: true
+  user:
+    password: 123
+    name: user

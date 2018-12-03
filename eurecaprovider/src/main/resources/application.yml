@@ -1,0 +1,28 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:123@localhost:8761/eureka/
+server:
+  port: 8762
+spring:
+  application:
+    name: eurecaprovicer
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/grouptwo?useUnicode=true&characterEncoding=utf-8?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #启用shutdown  用于优雅停服
+endpoints:
+  shutdown:
+    enabled: true
+    #禁用密码验证
+    sensitive: false
+logging:
+  level:
+    tk:
+      mybatis: TRACE
+#mybatis 扫描
+mybatis:
+  config-location: classpath:mapper/*.xml
+  type-aliases-package: com.jk.model
